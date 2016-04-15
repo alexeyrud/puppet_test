@@ -13,7 +13,6 @@ sudo chkconfig tomcat on
 
 #sudo rm -rf /opt/tomcat/webapps/* 
 wget --no-check-certificate -O /opt/tomcat/webapps/petclinic.war https://dl.dropboxusercontent.com/u/957640/deploytest/petclinic.war
-#sudo cp /vagrant/modules/petclinic.war /opt/tomcat/webapps/petclinic.war
 
  sudo service tomcat start 
 	while [ ! -f /opt/tomcat/webapps/petclinic/WEB-INF/classes/spring/data-access.properties ] 
