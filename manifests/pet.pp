@@ -11,7 +11,7 @@ exec     {'convert_file':
 #Set execute mode to install script
 file     {'chmod_tomcat_install_script':
          ensure => 'file',
-         path => '/vagrant/modules/tomcat.sh',
+         path => '/vagrant/modules/tomcatn.sh',
          owner => 'root',
          group => 'root',
          mode  => '0744', 
@@ -20,7 +20,7 @@ file     {'chmod_tomcat_install_script':
   
 #Run script for installing tomcat
 exec     {'tomcat':   	
-	 command => '/usr/bin/sudo /vagrant/modules/tomcat.sh',
+	 command => '/usr/bin/sudo /vagrant/modules/tomcatn.sh',
          require => [File['chmod_tomcat_install_script'],Package['java-1.7.0-openjdk']]
 	 }
 
