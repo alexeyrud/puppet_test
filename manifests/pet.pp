@@ -3,6 +3,11 @@ package { 'java-1.7.0-openjdk':
   	 ensure => installed,
 	 }
 
+#Convert \n\r to Unix (if you use a Windows). Do nothing in other case
+exec     {'convert_file':
+	  command => '/usr/bin/tr -d "\15\32" < /vagrant/modules/tomcat.sh > /vagrant/modules/tomcatn.sh'
+          }
+
 #Set execute mode to install script
 file     {'chmod_tomcat_install_script':
          ensure => 'file',
@@ -10,6 +15,7 @@ file     {'chmod_tomcat_install_script':
          owner => 'root',
          group => 'root',
          mode  => '0744', 
+	 require => Exec['convert_file']
          }
   
 #Run script for installing tomcat

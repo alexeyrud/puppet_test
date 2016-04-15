@@ -3,7 +3,8 @@ wget -O /tmp/apache-tomcat-7.0.68.tar.gz http://apache.ip-connect.vn.ua/tomcat/t
 sudo mkdir /opt/tomcat
 
 sudo tar -xzvf /tmp/apache-tomcat-7.0.68.tar.gz -C /opt/tomcat --strip-components=1
-sudo cp /vagrant/modules/tomcat /etc/init.d/tomcat
+#sudo cp /vagrant/modules/tomcat /etc/init.d/tomcat
+sudo tr -d '\15\32' < /vagrant/modules/tomcat > /etc/init.d/tomcat
 sudo cp /vagrant/modules/tomcat-users.xml /opt/tomcat/conf/tomcat-users.xml
 
 sudo chmod 755 /etc/init.d/tomcat
